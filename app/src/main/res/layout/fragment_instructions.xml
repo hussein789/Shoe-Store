@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+    <variable
+        name="viewModel"
+        type="com.udacity.shoestore.screens.instructions.InstructionsViewModel" />
+  </data>
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:padding="@dimen/padding_med"
+      tools:context=".screens.instructions.InstructionsFragment">
+
+    <TextView
+        android:id="@+id/instruction1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/instruction1"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/instrction2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instruction2"
+        android:textSize="16sp"
+        android:layout_marginTop="@dimen/field_margin"
+        android:layout_below="@id/instruction1" />
+
+    <Button
+        android:id="@+id/show_list_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="@{()->viewModel.onShowListClicked()}"
+        android:text="@string/show_list" />
+
+  </RelativeLayout>
+</layout>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="email_text">Email</string>
+    <string name="password_text">Password</string>
+    <string name="login_text">Login</string>
+    <string name="join_us">Join us</string>
+    <string name="welcome">Welcome</string>
+    <string name="instructions">Instructions</string>
+    <string name="instruction1">This app will help you manage with the following</string>
+    <string name="instruction2">First thing is display your shoes list \n Second is add any new shoe you would like to to be shown</string>
+    <string name="show_list">Show List</string>
+    <string name="logout">logout</string>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.udacity.shoestore.screens.welcome.WelcomeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screens.welcome.WelcomeFragment"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome"
+            android:textSize="32sp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/email_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="HusseinAntar@gmail.com"
+            android:text="@{viewModel.email}"
+            android:textSize="28sp"
+            android:layout_marginTop="@dimen/field_margin" />
+
+        <Button
+            android:id="@+id/instruction_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/instructions"
+            android:onClick="@{()->viewModel.onNavigateClicked()}"
+            android:layout_marginTop="@dimen/field_margin" />
+
+    </LinearLayout>
+</layout>
