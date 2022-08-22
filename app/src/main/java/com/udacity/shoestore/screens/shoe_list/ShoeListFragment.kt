@@ -36,6 +36,7 @@ class ShoeListFragment : Fragment() {
         when(item.itemId){
             R.id.logout_action -> {
                 requireView().findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment())
+                viewModel.clearList()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -46,6 +47,21 @@ class ShoeListFragment : Fragment() {
         viewModel.showList.observe(viewLifecycleOwner, Observer { showList ->
             showList?.let { handleShowList(it) }
         })
+        viewModel.eventNavigateToShoeDetails.observe(viewLifecycleOwner, Observer { navigate ->
+            if(navigate){
+                handleNavigationToDetails()
+                viewModel.onDoneDetailsNavigation()
+            }
+        })
+    }
+
+    private fun handleNavigationToDetails() {
+        requireView().findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.updateList()
     }
 
     private fun handleShowList(showList: List<Shoe>) {
@@ -56,4 +72,5 @@ class ShoeListFragment : Fragment() {
             layout.invalidateAll()
         }
     }
+
 }

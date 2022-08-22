@@ -36,8 +36,9 @@
             android:layout_marginTop="@dimen/field_margin"
             android:layout_marginEnd="@dimen/field_margin"
             android:layout_marginBottom="@dimen/field_margin"
-            android:onClick="@{()->viewModel.onAddShowClicked()}"
-            android:src="@drawable/ic_add" />
+            android:src="@drawable/ic_add"
+            android:onClick="@{()->viewModel.onAddShoeClicked()}"
+            />
 
     </RelativeLayout>
 </layout>

@@ -6,12 +6,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ActivityMainBinding
-import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +26,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp()
+        return if(navController.currentDestination?.label?.equals(getString(R.string.shoe_list_label)) != true) navController.navigateUp(appBarConfiguration)
+        else false
     }
+
+    override fun onBackPressed() {
+        if(navController.currentDestination?.label?.equals(getString(R.string.shoe_list_label)) != true) super.onBackPressed()
+    }
+
 }

@@ -10,4 +10,16 @@
     <string name="instruction2">First thing is display your shoes list \n Second is add any new shoe you would like to to be shown</string>
     <string name="show_list">Show List</string>
     <string name="logout">logout</string>
+    <string name="name">Name</string>
+    <string name="size">Size</string>
+    <string name="description">Description</string>
+    <string name="company">Company</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="shoe_list_label">Shoe List</string>
+    <string name="login_label">Login</string>
+    <string name="welcome_label">Welcome</string>
+    <string name="instruction_label">Instructions</string>
+    <string name="shoe_details_label">Shoe Details</string>
+
 </resources>

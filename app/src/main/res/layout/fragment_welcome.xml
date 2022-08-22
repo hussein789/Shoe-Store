@@ -8,36 +8,42 @@
             type="com.udacity.shoestore.screens.welcome.WelcomeViewModel" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".screens.welcome.WelcomeFragment"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/padding_med"
+        >
 
         <TextView
+            android:id="@+id/welcome_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcome"
             android:textSize="32sp"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:layout_centerInParent="true"/>
 
         <TextView
             android:id="@+id/email_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="HusseinAntar@gmail.com"
+            android:layout_below="@id/welcome_tv"
+            android:layout_marginTop="@dimen/field_margin"
             android:text="@{viewModel.email}"
             android:textSize="28sp"
-            android:layout_marginTop="@dimen/field_margin" />
+            android:textAlignment="center"
+            tools:text="HusseinAntar@gmail.com" />
 
         <Button
             android:id="@+id/instruction_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/instructions"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/field_margin"
             android:onClick="@{()->viewModel.onNavigateClicked()}"
-            android:layout_marginTop="@dimen/field_margin" />
+            android:text="@string/instructions" />
 
-    </LinearLayout>
+    </RelativeLayout>
 </layout>
