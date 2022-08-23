@@ -16,17 +16,26 @@ class ShoeViewModel: ViewModel() {
     private val _eventNavigateToShoeDetails = MutableLiveData<Boolean>()
     val eventNavigateToShoeDetails:LiveData<Boolean> get() = _eventNavigateToShoeDetails
 
+    val shoeName = MutableLiveData<String>()
+    val shoeSize = MutableLiveData<String>()
+    val shoeDescription = MutableLiveData<String>()
+    val shoeCompany = MutableLiveData<String>()
+
     private val localList = mutableListOf<Shoe>()
 
-    fun onSaveShoeClicked(name:String, size:Double, description:String, company:String) {
-        if(name.isEmpty() || description.isEmpty() || company.isEmpty()) return
-        val newShoe = Shoe(name,size,company,description)
+    fun onSaveShoeClicked() {
+        val name = shoeName.value?.toString() ?: ""
+        val description = shoeDescription.value?.toString() ?: ""
+        val company = shoeCompany.value?.toString() ?: ""
+        val size = shoeSize.value?.toString() ?: ""
+        if(name.isEmpty() || description.isEmpty() || company.isEmpty() || size.isEmpty()) return
+        val newShoe = Shoe(name,size.toDouble(),company,description)
         localList.add(newShoe)
         _shoeList.value = localList
         _eventNavigateToShowList.value = true
     }
 
-    fun onCancelClicked(){
+    fun onCancelClicked() {
         _eventNavigateToShowList.value = true
     }
 
@@ -48,5 +57,12 @@ class ShoeViewModel: ViewModel() {
 
     fun clearList() {
         localList.clear()
+    }
+
+    fun clearFields(){
+        shoeName.value = ""
+        shoeSize.value = ""
+        shoeCompany.value = ""
+        shoeDescription.value = ""
     }
 }

@@ -22,12 +22,12 @@ class ShoeDetailsFragment : Fragment() {
     ): View? {
         binding = FragmentShoeDetailsBinding.inflate(inflater,container,false)
         binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initClickListeners()
         observeViewModel()
     }
 
@@ -35,6 +35,7 @@ class ShoeDetailsFragment : Fragment() {
         viewModel.eventNavigateToShowList.observe(viewLifecycleOwner, Observer { navigate ->
             if(navigate){
                 handleNavigateToShowList()
+                viewModel.clearFields()
                 viewModel.onDoneListNavigation()
             }
         })
@@ -44,20 +45,7 @@ class ShoeDetailsFragment : Fragment() {
         requireView().findNavController().navigateUp()
     }
 
-    private fun initClickListeners() {
-        binding.saveBtn.setOnClickListener {
-            onSaveClicked()
-        }
-        binding.cancelBtn.setOnClickListener {
-            viewModel.onCancelClicked()
-        }
-    }
-
     private fun onSaveClicked() {
-        val nameVal = binding.nameEt.text.toString()
-        val sizeVal = binding.sizeEt.text.toString().toDouble()
-        val descriptionVal = binding.descriptionEt.text.toString()
-        val companyVal = binding.companyEt.text.toString()
-        viewModel.onSaveShoeClicked(nameVal,sizeVal,descriptionVal,companyVal)
+        viewModel.onSaveShoeClicked()
     }
 }
