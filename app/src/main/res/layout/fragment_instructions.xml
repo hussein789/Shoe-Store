@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
   <data>
     <variable
@@ -8,28 +9,41 @@
         type="com.udacity.shoestore.screens.instructions.InstructionsViewModel" />
   </data>
 
-  <RelativeLayout
+  <!--
+  This layout represent instructions screen with 2 text views and a button for navigate to shoe list screen
+  Using Constraint layout to position the button at the bottom of the layout with
+  nested linear layout for position the text views below each other.
+  -->
+  <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:orientation="vertical"
       android:padding="@dimen/padding_med"
       tools:context=".screens.instructions.InstructionsFragment">
 
-    <TextView
-        android:id="@+id/instruction1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/instruction1"
-        android:textSize="20sp" />
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+      <TextView
+          android:id="@+id/instruction1"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/instruction1"
+          android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/instrction2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/instruction2"
-        android:textSize="16sp"
-        android:layout_marginTop="@dimen/field_margin"
-        android:layout_below="@id/instruction1" />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/instruction2"
+          android:textSize="16sp"
+          android:layout_marginTop="@dimen/field_margin" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/show_list_btn"
@@ -37,7 +51,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:onClick="@{()->viewModel.onShowListClicked()}"
-        android:text="@string/show_list" />
+        android:text="@string/show_list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-  </RelativeLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

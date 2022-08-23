@@ -8,6 +8,13 @@
             type="com.udacity.shoestore.screens.shoe_list.ShoeViewModel" />
     </data>
 
+    <!--
+    This screen represent shoe details layout to add new shoe
+    with 4 labels and 4 text views for (name, size, description and company).
+    and also have 2 buttons save for saving the new shoe and
+    cancel for cancel saving the new shoe.
+    -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.udacity.shoestore.screens.shoe_list.ShoeViewModel" />
     </data>
 
-    <RelativeLayout
-        android:orientation="vertical"
+    <!--
+    This layout represent shoe list with one scroll view with nested linear layout
+    that add shoe item programmatically on it and also have floating action button for adding new shoe
+    -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:id="@+id/items_container"
@@ -36,9 +47,11 @@
             android:layout_marginTop="@dimen/field_margin"
             android:layout_marginEnd="@dimen/field_margin"
             android:layout_marginBottom="@dimen/field_margin"
-            android:src="@drawable/ic_add"
+            android:contentDescription="@string/add_new_shoe"
             android:onClick="@{()->viewModel.onAddShoeClicked()}"
-            />
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
