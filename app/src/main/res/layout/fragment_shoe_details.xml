@@ -13,6 +13,7 @@
     with 4 labels and 4 text views for (name, size, description and company).
     and also have 2 buttons save for saving the new shoe and
     cancel for cancel saving the new shoe.
+    using constraint layout for align complex views in the layout.
     -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
