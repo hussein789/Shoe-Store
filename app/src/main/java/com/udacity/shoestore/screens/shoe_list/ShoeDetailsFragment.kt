@@ -35,7 +35,6 @@ class ShoeDetailsFragment : Fragment() {
         viewModel.eventNavigateToShowList.observe(viewLifecycleOwner, Observer { navigate ->
             if(navigate){
                 handleNavigateToShowList()
-                viewModel.clearFields()
                 viewModel.onDoneListNavigation()
             }
         })
@@ -44,6 +43,7 @@ class ShoeDetailsFragment : Fragment() {
     private fun handleNavigateToShowList() {
         requireView().findNavController().navigateUp()
     }
+
 
     private fun onSaveClicked() {
         viewModel.onSaveShoeClicked()

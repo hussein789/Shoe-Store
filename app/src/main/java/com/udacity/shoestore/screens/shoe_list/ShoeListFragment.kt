@@ -56,6 +56,7 @@ class ShoeListFragment : Fragment() {
     }
 
     private fun handleNavigationToDetails() {
+        viewModel.clearFields()
         requireView().findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
     }
 
